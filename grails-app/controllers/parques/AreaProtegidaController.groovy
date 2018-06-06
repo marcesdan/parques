@@ -11,12 +11,8 @@ class AreaProtegidaController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond areaProtegidaService.list(params), model:[areaProtegidaCount: areaProtegidaService.count()]
-    }
-
-    def indexGrilla(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond areaProtegidaService.list(params), model:[areaProtegidaCount: areaProtegidaService.count()], view: 'index-grilla'
+        respond areaProtegidaService.list(params),
+                model: [areaProtegidaCount: areaProtegidaService.count()]
     }
 
     def show(Long id) {
@@ -36,7 +32,7 @@ class AreaProtegidaController {
         try {
             areaProtegidaService.save(areaProtegida)
         } catch (ValidationException e) {
-            respond areaProtegida.errors, view:'create'
+            respond areaProtegida.errors, view: 'create'
             return
         }
 
@@ -62,7 +58,7 @@ class AreaProtegidaController {
         try {
             areaProtegidaService.save(areaProtegida)
         } catch (ValidationException e) {
-            respond areaProtegida.errors, view:'edit'
+            respond areaProtegida.errors, view: 'edit'
             return
         }
 
@@ -71,7 +67,7 @@ class AreaProtegidaController {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), areaProtegida.id])
                 redirect areaProtegida
             }
-            '*'{ respond areaProtegida, [status: OK] }
+            '*' { respond areaProtegida, [status: OK] }
         }
     }
 
@@ -86,9 +82,9 @@ class AreaProtegidaController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), id])
-                redirect action:"index", method:"GET"
+                redirect action: "index", method: "GET"
             }
-            '*'{ render status: NO_CONTENT }
+            '*' { render status: NO_CONTENT }
         }
     }
 
@@ -98,7 +94,7 @@ class AreaProtegidaController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*'{ render status: NOT_FOUND }
+            '*' { render status: NOT_FOUND }
         }
     }
 }

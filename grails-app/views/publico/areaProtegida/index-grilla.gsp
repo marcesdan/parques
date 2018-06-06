@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
+        <meta name="layout" content="public" />
     </head>
     <body>
       <div class="card card-table">
             <div class="card-header card-header-table flex-row">
                 <ul class="nav nav-pills card-header-pills">
                         <li><strong>Áreas protegidas</strong></li>
-                        <a href="/grilla">
-                          <li class="text-success"><i class="fas fa-th"></i><strong> Ver grilla</strong></li>
+                        <a href="/">
+                          <li class="text-success"><i class="fas fa-table"></i><strong> Ver tabla</strong></li>
                         </a>
                         <a href="#">
                           <li class="text-success"><i class="fas fa-map-marker-alt"></i><strong> Ver mapa</strong></li>
                         </a>
                 </ul>
             </div>
-            <table id="table" class="table table-striped table-bordered compact table-sm dt-responsive nowrap" style="width:100%">
-            <thead>
-                <tr>
-                    <th class="text-center">Área protegida</th>
-                    <th class="text-center">Region</th>
-                    <th class="text-center">Provincia</th>
-                    <th class="text-center">Localidad</th>
-                </tr>
-            </thead>
-            <g:each in="${areaProtegidaList}" var="areaProtegida">
-                <tr class="areaProtegida{$areaProtegida.id}">
-                      <td><a href="#" class="text-success"><strong>${areaProtegida.parque}</strong</a></td>
-                      <td>${areaProtegida.delegacion}</td>
-                      <td>${areaProtegida.localidad}</td>
-                      <td>${areaProtegida.provincia}</td>
-                </tr>
-            </g:each>
-            </table>
-        </div>
+          <div class="album py-4 bg-light">
+              <div class="card-deck">
+                <g:each in="${areaProtegidaList}" var="areaProtegida">
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-4 box-shadow">
+                    <div class="card profile-view">
+                        <img class="card-img-top" src="https:${areaProtegida.imagen_principal?.thumb_200px}" alt="Card image cap" width="272" height="180">
+                        <img class="rounded-circle pv-main" src="https:${areaProtegida.logo?.thumb_200px}" width="140" height="140">
+                      <div class="card-body text-center mt-4">
+                        <h5 class="card-title mt-4">${areaProtegida.parque}</h5>
+                        <p class="card-text"><i class="fas fa-map-marker-alt"></i> ${areaProtegida.localidad}, ${areaProtegida.provincia}</p>
+                      </div>
+                      <div class="card-footer text-center">
+                        <a class="btn btn-secondary btn-sm btn-block btn-success" href="/areaProtegida/show/${areaProtegida.id}" role="button">Ver ficha &raquo;</a>
+                      </div>
+                    </div><!-- /.col-lg-4 -->
+                  </div><!-- /.col-lg-4 -->
+                </g:each>
+              </div><!-- /.col-lg-4 -->
+            </div>
 
-        <script type="text/javascript">
+    </div>
+
+    <script type="text/javascript">
           var table = $('#table').DataTable( {
             "order": [[1, 'asc']],
               "language": {
@@ -74,5 +76,6 @@
           table.buttons().container()
               .appendTo( '#table_wrapper .col-md-6:eq(0)' );
         </script>
+
     </body>
 </html>

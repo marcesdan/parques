@@ -6,28 +6,26 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-10">
-            <h1>${areaProtegida.parque}</h1>
-            <p>Provincia: ${areaProtegida.provincia} - Localidad: ${areaProtegida.localidad}</p>
-            <p>Objetivo: ${areaProtegida.objetivo}</p>
-          </div>
-          <div class="col-sm-2 d-none d-sm-block">
-            <img class="rounded-circle" src="https:${areaProtegida.logo?.thumb_200px}" width="140" height="140">
-          </div>
+        <a href="#show-areaProtegida" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        <div class="nav" role="navigation">
+            <ul>
+                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+            </ul>
         </div>
-        <nav>
-          <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Información general</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Especies</a>
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        <div id="show-areaProtegida" class="content scaffold-show" role="main">
+            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+            </g:if>
+            <f:display bean="areaProtegida" />
+            <g:form resource="${this.areaProtegida}" method="DELETE">
+                <fieldset class="buttons">
+                    <g:link class="edit" action="edit" resource="${this.areaProtegida}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                </fieldset>
+            </g:form>
         </div>
-      </div>
     </body>
 </html>

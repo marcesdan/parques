@@ -6,6 +6,20 @@ class BootStrap {
 
     def init = { servletContext ->
 
+        def authorities = ['ROLE_CLIENT']
+        authorities.each {
+            if ( !Role.findByAuthority(it) ) {
+                new Role(authority: it).save()
+            }
+        }
+        if ( !User.findByUsername('sherlock') ) {
+            def u = new User(username: 'marces', password: 'peachy')
+            u.save()
+            def ur = new UserRole(user: u, role:  Role.findByAuthority('ROLE_CLIENT'))
+            ur.save()
+        }
+
+        /*
         def base = "https://sib.gob.ar/api/2.0.0/"
         def data = { endpoint ->
             new JsonSlurper().parse(new URL(base + endpoint))
@@ -67,6 +81,7 @@ class BootStrap {
                 println(x++)
             }
         }
+        */
     }
 
     def destroy = {

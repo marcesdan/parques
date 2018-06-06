@@ -48,7 +48,7 @@
             <g:each in="${areaProtegidaList}" var="areaProtegida">
               <tr class="areaProtegida{$areaProtegida.id} text-dark">
                 <td>
-                  <a href="/areaProtegida/show/${areaProtegida.id}" class="text-success">
+                  <a href="/area-protegida/${areaProtegida.id}" class="text-success">
                     <strong>${areaProtegida.parque}</strong>
                   </a>
                 </td>
@@ -74,7 +74,7 @@
                         <p class="card-text"><i class="fas fa-map-marker-alt"></i> ${areaProtegida.localidad}, ${areaProtegida.provincia}</p>
                       </div>
                   <div class="card-footer text-center">
-                    <a class="btn btn-secondary btn-sm btn-block btn-success" href="/areaProtegida/show/${areaProtegida.id}" role="button">Ver ficha &raquo;</a>
+                    <a class="btn btn-secondary btn-sm btn-block btn-success" href="/area-protegida/${areaProtegida.id}" role="button">Ver ficha &raquo;</a>
                   </div>
                 </div><!-- /.card -->
               </div><!-- /.col-x-x -->

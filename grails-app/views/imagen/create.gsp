@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
+        <meta name="layout" content="public" />
         <g:set var="entityName" value="${message(code: 'imagen.label', default: 'PortadaArea')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
