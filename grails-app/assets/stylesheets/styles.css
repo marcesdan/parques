@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+
+html, body {
+    height: 100%;
+}
+body {
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    color: #636b6f;
+    background-color: #f5f5f5;
+    padding-top: 90px;
+
+    /*sticky footer*/
+    display: flex;
+    flex-direction: column;
+}
+main {
+  /*sticky footer*/
+  flex: 1 0 auto;
+}
+footer {
+  /*sticky footer*/
+  flex-shrink: 0;
+}
+
+/* para el logo */
+.navbar.navbar-dark {
+  padding: 7px;
+}
+.navbar-brand {
+  margin-left: 40px;
+  padding: 0;
+}
+
+/* estilos del navbar*/
+.navbar.navbar-dark .nav-link {
+  color: white;
+}
+.navbar.navbar-dark .nav-link:hover {
+  transition: all 1s;
+  color: #FFEFBF;
+  background-color: #204d40;
+  border-radius: 5px;
+}
+.navbar.navbar-dark {
+  border-bottom: 1px #fff solid;
+}
+/*coparte algunos estilos con el footer*/
+.navbar.navbar-dark, .footer {
+  background-color: #275F4F;
+  font-family: 'Fjalla One',sans-serif;
+  font-size: 17px;
+}
+
+/*estilos personalizados de la datatable*/
+table.dataTable {
+  border-collapse: collapse important!;
+}
+.dataTables_wrapper {
+  padding: 6px 0 0 0;
+}
+.table.table-bordered tbody td {
+  vertical-align: baseline;
+}
+/* dropdown de columnas activas de la datatable */
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #275F4F;
+}
+/* paginación de la datatable */
+.page-item.active .page-link {
+    background-color: #275F4F;
+    border-color: #275F4F;
+}
+
+/*vista en modo grilla*/
+.card-deck .card {
+    margin: 0;
+}
+/* Para el logo junto a la imagen del area protegida, en la vista tipo grilla de las AP*/
+.profile-view > .pv-main {
+    width: 130px;
+    position: absolute;
+    height: 130px;
+    top: 100px;
+    left: 50%;
+    margin-left: -65px;
+    transition-duration: .3s;
+}
+.profile-view:hover .pv-main {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
