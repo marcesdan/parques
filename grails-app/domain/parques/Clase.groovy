@@ -5,6 +5,6 @@ class Clase {
     String nombre
 
     static constraints = {
-        nombre unique: true
+        nombre unique: true, blank: false
     }
 }

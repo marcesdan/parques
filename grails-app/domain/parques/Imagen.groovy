@@ -4,7 +4,6 @@ class Imagen {
 
     String url
 
-    static belongsTo = [especie:Especie]
     static constraints = {
     }
 }

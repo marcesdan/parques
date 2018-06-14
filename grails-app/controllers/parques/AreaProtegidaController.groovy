@@ -1,13 +1,15 @@
 package parques
 
+import grails.converters.JSON
 import grails.validation.ValidationException
+
 import static org.springframework.http.HttpStatus.*
 
 class AreaProtegidaController {
 
     AreaProtegidaService areaProtegidaService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", cargarDatos: "POST"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -73,12 +75,15 @@ class AreaProtegidaController {
 
     def delete(Long id) {
         if (id == null) {
-            notFound()
-            return
+            //notFound()
+            render([success: false] as JSON)
         }
 
         areaProtegidaService.delete(id)
 
+        render([success: true] as JSON)
+
+        /*
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), id])
@@ -86,7 +91,18 @@ class AreaProtegidaController {
             }
             '*' { render status: NO_CONTENT }
         }
+        */
     }
+
+    def cargarDatos() {
+        try {
+            areaProtegidaService.cargarDatos()
+            render([success: true] as JSON)
+        } catch (e) {
+            render([success: false] as JSON)
+        }
+    }
+
 
     protected void notFound() {
         request.withFormat {
