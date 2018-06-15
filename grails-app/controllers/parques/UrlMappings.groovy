@@ -15,6 +15,12 @@ class UrlMappings {
             get "/especies/$id"(controller: "areaProtegida", action: "showEspecies", namespace: "publico")
         }
 
+        group "/api", {
+            get "/clases"(controller: "helper", action: "getClases")
+            get "/ordenes"(controller: "helper", action: "getOrdenes")
+            get "/familias"(controller: "helper", action: "getFamilias")
+        }
+
         // Login
         get "/login/auth"(controller: "login", action: "auth")
         post "/logout"(controller: "logout")

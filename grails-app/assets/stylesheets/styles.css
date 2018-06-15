@@ -74,7 +74,13 @@ p {
   background-color: #275F4F; 
 }
 
-
+/*para que un campo input tenga el mismo tamaño que los select2 (son mas pequeños)*/
+.form-control-custom {
+  padding: .17rem .50rem; 
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: black;
+}
 
 /*estilos personalizados de la datatable*/
 table.dataTable {

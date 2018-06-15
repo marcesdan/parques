@@ -19,12 +19,14 @@
         </nav>
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-informacion" role="tabpanel" aria-labelledby="nav-informacion-tab">
-
           </div>
           <div class="tab-pane fade" id="nav-especies" role="tabpanel" aria-labelledby="nav-especies-tab">
             <g:render template="especiesTemplate"/>
           </div>
         </div>
       </div>
+      <content tag="scripts">
+        <asset:javascript src="init-selects2.js"/>
+      </content>
     </body>
 </html>

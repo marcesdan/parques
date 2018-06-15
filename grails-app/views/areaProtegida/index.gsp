@@ -49,9 +49,11 @@
           </tr>
         </g:each>
       </table>
-    </div> 
+    </div>
     <g:render template="modalDeleteTemplate"/>
-    <asset:javascript src="datatable.js"/>
-    <asset:javascript src="ajax-delete-ap.js"/>
+    <content tag="scripts">
+      <asset:javascript src="datatable.js"/>
+      <asset:javascript src="ajax-delete-ap.js"/>
+    </content>
   </body>
 </html>

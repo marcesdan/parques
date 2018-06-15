@@ -1,35 +1,48 @@
-<div class="card mt-4">
-	<h6 class="card-header">Filtros de búsqueda</h6>
+<div class="card mt-4 shadow">
+	<h6 class="card-header"><i class="fas fa-search"></i> Filtros de búsqueda</h6>
 	<div class="card-body">
     <form>
-      <div class="form-row pl-3 pr-3 ">
+      <div class="form-row pl-3 pr-3">
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-reino js-states form-control" name="reino" style="width: 100%">
+          <select class="form-control form-control-sm text-dark" name="reino">
+            <option value="-1">Reino (ver todo)</option>
+            <option value="ANIMALIA">ANIMALIA</option>
+            <option value="BACTERIA">BACTERIA</option>
+            <option value="FUNGI">FUNGI</option>
+            <option value="PLANTAE">PLANTAE</option>
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-clase js-states form-control" name="clase" style="width: 100%">
+          <select class="select-clase js-states form-control" name="clase">
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-orden js-states form-control" name="orden" style="width: 100%">
+          <select class="select-orden js-states form-control" name="orden">
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-familia js-states form-control" name="familia" style="width: 100%">
+          <select class="select-familia js-states form-control" name="familia">
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-origen js-states form-control" name="origen" style="width: 100%">
+          <select class="form-control form-control-sm text-dark" name="origen">
+            <option value="-1">Origen (ver todo)</option>
+            <option value="Autóctono">Autóctono</option>
+            <option value="Endémico">Endémico</option>
+            <option value="Introducido">Introducido</option>
+            <option value="Naturalizado">Naturalizado</option>
+            <option value="Sin datos">Sin datos</option>
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-tiene-fotos js-states form-control" name="tiene-fotos" style="width: 100%">
+          <select class="form-control form-control-sm text-dark" name="tiene-fotos">
+            <option value="-1">Tiene fotos? (ver todo)</option>
+            <option value="0">No</option>
+            <option value="1">Si</option>
           </select>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 pb-2 pt-2">
-            <input type="text" class="form-control form-control-sm" id="inlineFormInputGroup" placeholder="Username">
-          </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 pb-2 pt-2">
+            <input type="text" class="form-control form-control-custom" id="inlineFormInputGroup" placeholder="Especie, genero, nombre científico o nombre común">
         </div>
       </div>
     </form>
@@ -59,61 +72,3 @@
   Los datos publicados son provisorios y están en proceso de actualización. Cualquier observación o duda remitirla a la casilla de e-mail: 
   <a href="mailto:sib@apn.gov.ar">sib@apn.gov.ar</a>
 </p>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-      $('.select-reino').select2({
-        width: 'resolve', // need to override the changed default
-        allowClear: true,
-        placeholder: {
-            id: '-1', // the value of the option
-            text: 'Reino'
-          }
-      });
-
-      $('.select-clase').select2({
-        width: 'resolve', // need to override the changed default
-        allowClear: true,
-        placeholder: {
-            id: '-1', // the value of the option
-            text: 'Clase'
-          }
-      });
-
-      $('.select-orden').select2({
-        width: 'resolve', // need to override the changed default
-        allowClear: true,
-        placeholder: {
-            id: '-1', // the value of the option
-            text: 'Orden'
-          }
-      });
-
-      $('.select-familia').select2({
-        width: 'resolve', // need to override the changed default
-        allowClear: true,
-        placeholder: {
-            id: '-1', // the value of the option
-            text: 'Familia'
-          }
-      });
-
-      $('.select-tiene-fotos').select2({
-        width: 'resolve', // need to override the changed default
-        allowClear: true,
-        placeholder: {
-            id: '-1', // the value of the option
-            text: 'Tiene fotos?'
-          }
-      });
-
-      $('.select-origen').select2({
-        width: 'resolve', // need to override the changed default
-        allowClear: true,
-        placeholder: {
-            id: '-1', // the value of the option
-            text: 'Origen'
-          }
-      });
-  });  
-</script>

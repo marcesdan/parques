@@ -37,7 +37,10 @@
       47 Areas Protegidas - Superficie total 4.594.003 ha
       Los datos publicados son provisorios y están en proceso de actualización. Cualquier observación o duda remitirla a la casilla de e-mail: 
       <a href="mailto:sib@apn.gov.ar">sib@apn.gov.ar</a>
-    </p>  
-    <asset:javascript src="datatable.js"/>
+    </p>
+
+    <content tag="scripts">
+      <asset:javascript src="datatable.js"/>
+    </content>
   </body>
 </html>
