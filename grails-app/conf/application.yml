@@ -93,14 +93,14 @@ dataSource:
     jmxExport: true
     #driverClassName: org.h2.Driver
     driverClassName: com.mysql.jdbc.Driver
-    username: root
+    username: marces
     password: secret
 
 environments:
     development:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://localhost/parques
+            url: jdbc:mysql://127.0.0.1/parques
             #url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     test:
         dataSource:

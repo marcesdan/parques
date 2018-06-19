@@ -8,6 +8,7 @@ class Familia {
 
     static mapping = {
         orden cascade: "save-update"
+        nombre index: "nombre_idx"
     }
     static constraints = {
         nombre unique: true

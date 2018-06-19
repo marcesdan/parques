@@ -22,8 +22,3 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
-grails.gorm.default.constraints = {
-	'*'(blank: false)
-	strNullable(nullable: true, blank: false)
-}
-

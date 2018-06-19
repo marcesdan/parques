@@ -25,6 +25,11 @@
       <input type="text" class="form-control" id="username" name="${usernameParameter ?: 'username'}" placeholder="Usuario" required autofocus>
       <label for="password" class="sr-only">Contraseña</label>
       <input class="form-control" class="form-control" type="password" id="password" name="${passwordParameter ?: 'password'}" placeholder="Contraseña" required>
+      <div class="checkbox mb-3 text-center">
+        <label>
+          <input type="checkbox" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me" <g:if test='${hasCookie}'>checked="checked"</g:if>/> Recordame
+        </label>
+      </div>
       <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
       <p class="mt-5 mb-3 text-muted text-center">&copy; marces 2017-2018</p>
     </form>

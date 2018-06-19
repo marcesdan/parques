@@ -27,6 +27,7 @@
       </div>
       <content tag="scripts">
         <asset:javascript src="init-selects2.js"/>
+        <asset:javascript src="especies-busqueda.js"/>
       </content>
     </body>
 </html>

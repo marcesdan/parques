@@ -8,6 +8,7 @@ import static org.springframework.http.HttpStatus.*
 class AreaProtegidaController {
 
     AreaProtegidaService areaProtegidaService
+    ParqueService parqueService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", cargarDatos: "POST"]
 
@@ -96,13 +97,12 @@ class AreaProtegidaController {
 
     def cargarDatos() {
         try {
-            areaProtegidaService.cargarDatos()
+            parqueService.cargarDatos()
             render([success: true] as JSON)
-        } catch (e) {
-            render([success: false] as JSON)
+        } catch (def e) {
+            render([success: e.printStackTrace()] as JSON)
         }
     }
-
 
     protected void notFound() {
         request.withFormat {
@@ -113,4 +113,5 @@ class AreaProtegidaController {
             '*' { render status: NOT_FOUND }
         }
     }
+
 }

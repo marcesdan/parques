@@ -8,6 +8,7 @@ class Genero {
 
     static mapping = {
         familia cascade: "save-update"
+        nombre index: "nombre_idx"
     }
 
     static constraints = {

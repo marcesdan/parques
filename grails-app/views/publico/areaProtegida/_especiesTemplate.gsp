@@ -1,10 +1,10 @@
 <div class="card mt-4 shadow">
 	<h6 class="card-header"><i class="fas fa-search"></i> Filtros de búsqueda</h6>
 	<div class="card-body">
-    <form>
+    <form id="search-form">
       <div class="form-row pl-3 pr-3">
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="form-control form-control-sm text-dark" name="reino">
+          <select class="form-control form-control-sm text-dark busqueda" name="reino">
             <option value="-1">Reino (ver todo)</option>
             <option value="ANIMALIA">ANIMALIA</option>
             <option value="BACTERIA">BACTERIA</option>
@@ -13,19 +13,16 @@
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-clase js-states form-control" name="clase">
-          </select>
+          <select class="select-clase js-states form-control busqueda" name="clase"></select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-orden js-states form-control" name="orden">
-          </select>
+          <select class="select-orden js-states form-control busqueda" name="orden"></select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="select-familia js-states form-control" name="familia">
-          </select>
+          <select class="select-familia js-states form-control busqueda" name="familia"></select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="form-control form-control-sm text-dark" name="origen">
+          <select class="form-control form-control-sm text-dark busqueda" name="origen">
             <option value="-1">Origen (ver todo)</option>
             <option value="Autóctono">Autóctono</option>
             <option value="Endémico">Endémico</option>
@@ -35,14 +32,15 @@
           </select>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 pb-2 pt-2">
-          <select class="form-control form-control-sm text-dark" name="tiene-fotos">
+          <select class="form-control form-control-sm text-dark busqueda" name="tiene-fotos">
             <option value="-1">Tiene fotos? (ver todo)</option>
             <option value="0">No</option>
             <option value="1">Si</option>
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 pb-2 pt-2">
-            <input type="text" class="form-control form-control-custom" id="inlineFormInputGroup" placeholder="Especie, genero, nombre científico o nombre común">
+            <input type="text" class="form-control form-control-custom busqueda" 
+            placeholder="Especie, genero, nombre científico o nombre común">
         </div>
       </div>
     </form>

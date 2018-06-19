@@ -5,6 +5,10 @@ class Clase {
     String nombre
 
     static constraints = {
-        nombre unique: true, blank: false
+        nombre unique: true
+    }
+
+    static mapping = {
+        nombre index: "nombre_idx"
     }
 }

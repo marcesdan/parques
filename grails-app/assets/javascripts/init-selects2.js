@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // valores comunes a los selects2
     var common_ajax = { 
       width: '100%', allowClear: true, minimumInputLength: 1,
       placeholder: { id: '-1', text: 'Clase'},
@@ -15,9 +16,9 @@ $(document).ready(function() {
         },
       },
     };
-
     $('.select-clase').select2(common_ajax);
 
+    // se cambian los únicos valores que difieren
     common_ajax.placeholder.text = 'Familia';
     common_ajax.ajax.url = '/api/familias';
     $('.select-familia').select2(common_ajax);
@@ -25,17 +26,4 @@ $(document).ready(function() {
     common_ajax.placeholder.text = 'Orden';
     common_ajax.ajax.url = '/api/ordenes';
     $('.select-orden').select2(common_ajax);
-
-    var common = { 
-      width: '100%', allowClear: true, 
-      placeholder: { id: '-1', text: 'Tiene fotos?'} 
-    };
-
-    $('.select-tiene-fotos').select2(common);
-
-    common.placeholder.text = 'Origen';
-    $('.select-origen').select2(common);
-
-    common.placeholder.text = 'Reino';
-    $('.select-reino').select2(common);   
 });  
