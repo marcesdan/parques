@@ -21,7 +21,7 @@ class Especie {
         especie index: "especie_idx"
         nombre_cientifico index: "nombre_cientifico_idx"
         nombre_comun index: "nombre_comun_idx"
-        genero cascade: "save-update"
+        genero cascade: "save-update", lazy: false
         imagen_principal lazy: false
         imagenes column: "especie_id", joinTable: false
         sonidos column: "especie_id", joinTable: false

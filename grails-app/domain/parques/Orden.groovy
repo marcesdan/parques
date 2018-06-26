@@ -6,7 +6,7 @@ class Orden {
 
     static belongsTo = [clase: Clase]
     static mapping = {
-        clase cascade: "save-update"
+        clase cascade: "save-update", lazy: false
         nombre index: "nombre_idx"
     }
 

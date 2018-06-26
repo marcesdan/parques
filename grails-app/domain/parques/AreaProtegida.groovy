@@ -27,5 +27,6 @@ class AreaProtegida {
         objetivo sqlType: 'text'
         logo lazy: false
         imagen_principal lazy: false
+        objetivos lazy: false
     }
 }

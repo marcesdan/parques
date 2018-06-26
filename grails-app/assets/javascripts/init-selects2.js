@@ -26,4 +26,8 @@ $(document).ready(function() {
     common_ajax.placeholder.text = 'Orden';
     common_ajax.ajax.url = '/api/ordenes';
     $('.select-orden').select2(common_ajax);
+
+    common_ajax.placeholder.text = 'Genero';
+    common_ajax.ajax.url = '/api/generos';
+    $('.select-genero').select2(common_ajax);
 });  

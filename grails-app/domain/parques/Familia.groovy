@@ -7,7 +7,7 @@ class Familia {
     static belongsTo = [orden: Orden]
 
     static mapping = {
-        orden cascade: "save-update"
+        orden cascade: "save-update", lazy: false
         nombre index: "nombre_idx"
     }
     static constraints = {

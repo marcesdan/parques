@@ -8,21 +8,23 @@
     <title>
         <g:layoutTitle default="SIB | Sistema de Información de Biodiversidad, Parques Nacionales, Argentina"/>
     </title>
+
     <!-- fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <!-- datatable bootstrap4 css -->
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">-->
-    <asset:stylesheet src="dataTables.bootstrap4.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css">
-    <!-- bootstrap styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <!-- toastr notifications -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <!-- select2 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    
-    <!-- Custom styles -->
+
+    <!-- Bootstrap -->
+    <asset:stylesheet src="bootstrap/bootstrap.min.css"/>
+
+    <!-- Datatables -->
+    <asset:stylesheet src="datatables/dataTables.bootstrap4.css"/>
+    <asset:stylesheet src="datatables/buttons.bootstrap4.min.css"/>
+    <asset:stylesheet src="datatables/responsive.bootstrap4.min.css"/>
+
+    <!-- Otros -->
+    <asset:stylesheet src="toastr.min.css"/>
+    <asset:stylesheet src="select2.min.css"/>
+
+    <!-- Personalizados -->
     <asset:stylesheet src="styles.css"/>
 
     <g:layoutHead/>
@@ -52,8 +54,8 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ADMINISTRACIÓN</a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="/admin"><i class="fas fa-table"></i> Listado de áreas</a>
-                      <a class="dropdown-item" href="/admin/area/nueva"><i class="fas fa-plus"></i> Nueva área</a>
-                      <g:form method="post" url="/admin/area/cargarDatos">
+                      <a class="dropdown-item" href="/admin/areas-protegidas/nueva"><i class="fas fa-plus"></i> Nueva área</a>
+                      <g:form method="post" url="/admin/areas-protegidas/cargarDatos">
                         <button type="submit" class="dropdown-item"><i class="fas fa-database"></i> Cargar datos</button>
                       </g:form>
                       <div role="separator" class="dropdown-divider"></div>
@@ -71,7 +73,7 @@
       <g:layoutBody/>
     </div>
   </main>
-  <footer class="footer shadow p-4 mt-2">
+  <footer class="footer shadow pb-2 pt-3 pl-4 pr-4 mt-3">
     <div class="container pt-3">
       <h4 class="text-white">
         Sistema de Información de Biodiversidad de la Administración de Parques Nacionales, Argentina
@@ -79,34 +81,45 @@
       <p class="text-white pt-3">
         En el SIB recopilamos, clasificamos, ordenamos y ponemos a disposición pública la información de carácter biológico sobre las especies y áreas protegidas de Argentina
       </p>
+      <div class="text-white text-right">
+        <i class="fas fa-code"></i> con <i class="text-danger fas fa-heart"></i> por marces 
+        <a href="https://github.com/marcesdan/parques"><i class="fab fa-github text-white"></i></a>
+      </div>
     </div>
   </footer>
 
   <div id="scripts">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap4.min.js"></script>
+    <!-- gmaps.js (librería para google maps) -->
+    <asset:javascript src="gmaps.js"/>
 
-    <!-- toastr notifications -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- JQuery y bootstrap -->
+    <asset:javascript src="jquery-3.3.1.min.js"/>
+    <asset:javascript src="popper.min.js"/>
+    <asset:javascript src="bootstrap/bootstrap.min.js"/>
 
-    <!-- select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <asset:javascript src="select2-es.js"/>
+    <!-- Datatables -->
+    <asset:javascript src="datatables/jquery.dataTables.min.js"/>
+    <asset:javascript src="datatables/dataTables.bootstrap4.min.js"/>
+    <asset:javascript src="datatables/dataTables.buttons.min.js"/>
+    <asset:javascript src="datatables/buttons.bootstrap4.min.js"/>
+    <asset:javascript src="datatables/dataTables.responsive.min.js"/>
+    <asset:javascript src="datatables/responsive.bootstrap4.min.js"/>
+    <asset:javascript src="datatables/jszip.min.js"/>
+    <asset:javascript src="datatables/buttons.html5.min.js"/>
+    <asset:javascript src="datatables/buttons.print.min.js"/>
+    <asset:javascript src="datatables/buttons.colVis.min.js"/>
+    <asset:javascript src="datatables/buttons.flash.min.js"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    
+    <!-- Notificaciones toastr -->
+    <asset:javascript src="toastr.min.js"/>    
 
+    <!-- Select2 -->
+    <asset:javascript src="select2/select2.min.js"/>
+    <asset:javascript src="select2/select2-es.js"/>
+    
      <!-- luego irían los scripts de los hijos -->
     <g:applyLayout name="scriptsLayout">
         <g:pageProperty name="page.scripts" />

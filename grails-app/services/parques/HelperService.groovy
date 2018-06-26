@@ -16,4 +16,8 @@ class HelperService {
     List getFamilias(String str) {
         Familia.findAllByNombreLike("${str}%", [ sort: 'nombre', order: 'asc'])
     }
+
+    List getGeneros(String str) {
+        Genero.findAllByNombreLike("${str}%", [ sort: 'nombre', order: 'asc'])
+    }
 }

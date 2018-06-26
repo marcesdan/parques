@@ -24,4 +24,8 @@ class HelperController {
     def getFamilias(String str) {
         renderJson(helperService.getFamilias(str))
     }
+
+    def getGeneros(String str) {
+        renderJson(helperService.getGeneros(str))
+    }
 }

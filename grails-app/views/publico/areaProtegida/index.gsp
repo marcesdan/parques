@@ -25,10 +25,10 @@
     </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-tabla" role="tabpanel" aria-labelledby="nav-tabla-tab">
-        <g:render template="tablaTemplate"/>
+        <g:render template="tabla"/>
       </div>
       <div class="tab-pane fade mt-3" id="nav-grilla" role="tabpanel" aria-labelledby="nav-grilla-tab">
-        <g:render template="grillaTemplate"/>
+        <g:render template="grilla"/>
       </div>
       <div class="tab-pane fade" id="nav-mapa" role="tabpanel" aria-labelledby="nav-mapa-tab">...</div>
     </div>

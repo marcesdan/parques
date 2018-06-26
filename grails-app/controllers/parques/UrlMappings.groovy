@@ -5,20 +5,21 @@ class UrlMappings {
     static mappings = {
 
         // FUCK CONVENTIONS
-        //"/$controller/$action?/$id?(.$format)?"{}
+        //"/$controller/$action?/$slug?(.$format)?"{}
 
         // Parte publica
-        "/"(uri: "/area-protegida/")
-        group "/area-protegida", {
+        "/"(uri: "/areas-protegidas/")
+        group "/areas-protegidas", {
             get "/"(controller: "areaProtegida", action: "index", namespace: "publico")
-            get "/$id"(controller: "areaProtegida", action: "show", namespace: "publico")
-            get "/especies/$id"(controller: "areaProtegida", action: "showEspecies", namespace: "publico")
+            get "/$slug"(controller: "areaProtegida", action: "show", namespace: "publico")
+            post "/$slug/especies"(controller: "especie", action: "index", namespace: "publico")
         }
 
         group "/api", {
             get "/clases"(controller: "helper", action: "getClases")
             get "/ordenes"(controller: "helper", action: "getOrdenes")
             get "/familias"(controller: "helper", action: "getFamilias")
+            get "/generos"(controller: "helper", action: "getGeneros")
         }
 
         // Login
@@ -28,15 +29,15 @@ class UrlMappings {
 
         //Parte privada
         group "/admin", {
-            get "/"(controller: "areaProtegida", action: "index")
-            group "/area", {
-                get "/mostrar/$id"(controller: "areaProtegida", action: "show")
-                get "/nueva"(controller: "areaProtegida", action: "create")
-                get "/editar/$id"(controller: "areaProtegida", action: "edit")
-                post "/guardar/$id"(controller: "areaProtegida", action: "save")
-                put "/actualizar/$id"(controller: "areaProtegida", action: "update")
-                delete "/eliminar/$id"(controller: "areaProtegida", action: "delete")
-                post "/cargarDatos"(controller: "areaProtegida", action: "cargarDatos")
+            get "/"(controller: "areaProtegida", action: "index", namespace: "privado")
+            group "/areas-protegidas", {
+                get "/mostrar/$slug"(controller: "areaProtegida", action: "show", namespace: "privado")
+                get "/nueva"(controller: "areaProtegida", action: "create", namespace: "privado")
+                get "/editar/$slug"(controller: "areaProtegida", action: "edit", namespace: "privado")
+                post "/guardar/$ap"(controller: "areaProtegida", action: "save", namespace: "privado")
+                put "/actualizar/$ap"(controller: "areaProtegida", action: "update", namespace: "privado")
+                delete "/eliminar/$id"(controller: "areaProtegida", action: "delete", namespace: "privado")
+                post "/cargarDatos"(controller: "areaProtegida", action: "cargarDatos", namespace: "privado")
             }
         }
 

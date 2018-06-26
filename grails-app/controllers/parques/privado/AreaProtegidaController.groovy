@@ -1,11 +1,16 @@
-package parques
+package parques.privado
 
 import grails.converters.JSON
 import grails.validation.ValidationException
+import parques.AreaProtegida
+import parques.AreaProtegidaService
+import parques.ParqueService
 
 import static org.springframework.http.HttpStatus.*
 
 class AreaProtegidaController {
+
+    static namespace = "privado"
 
     AreaProtegidaService areaProtegidaService
     ParqueService parqueService
@@ -13,13 +18,13 @@ class AreaProtegidaController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", cargarDatos: "POST"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        //params.max = Math.min(max ?: 10, 100)
         respond areaProtegidaService.list(params),
                 model: [areaProtegidaCount: areaProtegidaService.count()]
     }
 
-    def show(Long id) {
-        respond areaProtegidaService.get(id)
+    def show(String slug) {
+        respond areaProtegidaService.findBySlug(slug)
     }
 
     def create() {
@@ -48,8 +53,8 @@ class AreaProtegidaController {
         }
     }
 
-    def edit(Long id) {
-        respond areaProtegidaService.get(id)
+    def edit(String slug) {
+        respond areaProtegidaService.findBySlug(slug)
     }
 
     def update(AreaProtegida areaProtegida) {
@@ -100,7 +105,7 @@ class AreaProtegidaController {
             parqueService.cargarDatos()
             render([success: true] as JSON)
         } catch (def e) {
-            render([success: e.printStackTrace()] as JSON)
+            render([success: false] as JSON)
         }
     }
 

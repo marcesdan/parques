@@ -7,7 +7,7 @@ class Genero {
     static belongsTo = [familia: Familia]
 
     static mapping = {
-        familia cascade: "save-update"
+        familia cascade: "save-update", lazy: false
         nombre index: "nombre_idx"
     }
 
