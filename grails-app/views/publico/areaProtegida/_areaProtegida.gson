@@ -1,0 +1,20 @@
+model {
+    AreaProtegida areaProtegida
+}
+
+json {
+    slug areaProtegida.slug
+    parque areaProtegida.parque
+    localidad areaProtegida.localidad
+    provincia areaProtegida.provincia
+    delegacion areaProtegida.delegacion
+    ano_creacion areaProtegida.ano_creacion
+    objetivo areaProtegida.objetivo
+    superficie areaProtegida.superficie
+    lat areaProtegida.lat
+    lng areaProtegida.lng
+    imagen_principal areaProtegida.imagen_principal?.url
+    logo areaProtegida.logo?.url
+    //especies areaProtegida.imagenes?.collect { [url: it.url] } 
+    //sonidos areaProtegida.sonidos?.collect { [url: it.url]  }
+}

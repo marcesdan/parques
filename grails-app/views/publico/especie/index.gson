@@ -1,0 +1,29 @@
+import groovy.transform.Field
+import parques.Especie
+
+model {
+    @Field List<Especie> especieList = []
+}
+json tmpl.especie(especieList)
+
+/*
+esta forma no necesita un template...
+
+import groovy.transform.Field
+
+@Field List<Especie> especieList = []
+
+json especieList, { Especie e ->
+    nombre_cientifico e.nombre_cientifico
+    reino e.reino
+    clase e.genero.familia.orden.clase.nombre
+    orden e.genero.familia.orden.nombre
+    familia e.genero.familia.nombre
+    genero e.genero.nombre
+    nombre e.especie
+    nombre_comun e.nombre_comun
+    origen e.origen
+    imagen_principal e.imagen_principal?.url
+    imagenes especie.imagenes?.collect { [url: it.url] } 
+    sonidos especie.sonidos?.collect { [url: it.url]  }
+}*/

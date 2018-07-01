@@ -1,0 +1,18 @@
+model {
+    Especie especie
+}
+
+json {
+    nombre_cientifico especie.nombre_cientifico
+    reino especie.reino
+    clase especie.genero.familia.orden.clase.nombre
+    orden especie.genero.familia.orden.nombre
+    familia especie.genero.familia.nombre
+    genero especie.genero.nombre
+    nombre especie.especie
+    nombre_comun especie.nombre_comun
+    origen especie.origen
+    imagen_principal especie.imagen_principal?.url
+    imagenes especie.imagenes?.collect { [url: it.url] } 
+    sonidos especie.sonidos?.collect { [url: it.url]  }
+}

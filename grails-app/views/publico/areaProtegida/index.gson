@@ -1,0 +1,7 @@
+import groovy.transform.Field
+import parques.AreaProtegida
+
+model {
+    List<AreaProtegida> areaProtegidaList
+}
+json tmpl.areaProtegida(areaProtegidaList)
