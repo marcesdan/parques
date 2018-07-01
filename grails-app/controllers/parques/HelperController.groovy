@@ -8,7 +8,7 @@ class HelperController {
         render(contentType: "application/json") {
             results(result) { obj ->
                 id obj.id
-                text obj.nombre
+                text obj.toString()
             }
         }
     }
@@ -27,5 +27,9 @@ class HelperController {
 
     def getGeneros(String str) {
         renderJson(helperService.getGeneros(str))
+    }
+
+    def getEspeciesPorNombreCientifico(String str) {
+        renderJson(helperService.getEspeciesPorNombreCientifico(str))
     }
 }

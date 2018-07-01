@@ -4,8 +4,6 @@
         <meta name="layout" content="public" />
         <title>${areaProtegida.parque}</title>
     </head>
-    <body>
-      <div class="container">
         <g:render template="header"/>
         <nav class="mt-3 text-success">
           <div class="nav nav-tabs nav-fill nav-pills" id="nav-tab" role="tablist">
@@ -25,7 +23,6 @@
             <g:render template="especies"/>
           </div>
         </div>
-      </div>
       <content tag="scripts">
         <asset:javascript src="init-selects2.js"/>
         <asset:javascript src="especies-busqueda.js"/>

@@ -10,4 +10,9 @@ class Objetivo {
     static constraints = {
         descripcion unique: true
     }
+
+    @Override
+    String toString() {
+        descripcion
+    }
 }

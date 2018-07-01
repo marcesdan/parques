@@ -5,9 +5,10 @@ import grails.validation.ValidationException
 import parques.AreaProtegida
 import parques.AreaProtegidaService
 import parques.ParqueService
-
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('ROLE_ADMIN')
 class AreaProtegidaController {
 
     static namespace = "privado"
@@ -38,16 +39,16 @@ class AreaProtegidaController {
         }
 
         try {
-            areaProtegidaService.save(areaProtegida)
+            areaProtegidaService.save(areaProtegida, params)
         } catch (ValidationException e) {
             respond areaProtegida.errors, view: 'create'
             return
         }
-
+        
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), areaProtegida.id])
-                redirect areaProtegida
+                flash.message = "${areaProtegida.parque} creado con éxito!"
+                redirect uri: '/admin'
             }
             '*' { respond areaProtegida, [status: CREATED] }
         }
@@ -62,18 +63,16 @@ class AreaProtegidaController {
             notFound()
             return
         }
-
         try {
             areaProtegidaService.save(areaProtegida)
         } catch (ValidationException e) {
             respond areaProtegida.errors, view: 'edit'
             return
         }
-
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), areaProtegida.id])
-                redirect areaProtegida
+                flash.message = "${areaProtegida.parque} editado con éxito"
+                redirect uri: '/admin'
             }
             '*' { respond areaProtegida, [status: OK] }
         }
@@ -109,11 +108,20 @@ class AreaProtegidaController {
         }
     }
 
+    def agregarEspecies() {
+        try {
+            def especies = JSON.parse(params.especies)
+            respond areaProtegidaService.agregarEspecies(especies,params.id), view: '/publico/especie/index'
+        }
+        catch(Exception e) {
+        }
+    }
+
     protected void notFound() {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'areaProtegida.label', default: 'AreaProtegida'), params.id])
-                redirect action: "index", method: "GET"
+                redirect uri: '/admin'
             }
             '*' { render status: NOT_FOUND }
         }

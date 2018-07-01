@@ -10,7 +10,7 @@ $(document).on('click', '.delete-modal', function() {
 $('.modal-footer').on('click', '.delete', function() {
     $.ajax({
         type: 'DELETE',
-        url: '/admin/area/eliminar/' + $('#fid_delete').val(),
+        url: '/admin/areas-protegidas/eliminar/' + $('#fid_delete').val(),
         success: function(data) {
             toastr.success('Área protegida eliminada con éxito', 'Notificación:', {"timeOut": 5000, "positionClass": "toast-top-center"});
             $('.item' + $('#fid_delete').val()).remove();

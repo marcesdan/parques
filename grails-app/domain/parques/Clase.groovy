@@ -11,4 +11,9 @@ class Clase {
     static mapping = {
         nombre index: "nombre_idx"
     }
+
+    @Override
+    String toString() {
+    	nombre
+    }
 }

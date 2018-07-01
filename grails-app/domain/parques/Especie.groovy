@@ -26,4 +26,9 @@ class Especie {
         imagenes column: "especie_id", joinTable: false
         sonidos column: "especie_id", joinTable: false
     }
+
+    @Override
+    String toString() {
+        "$nombre_cientifico, $reino"
+    }
 }

@@ -14,5 +14,8 @@ class Orden {
         nombre unique: true
     }
 
-
+    @Override
+    String toString() {
+    	nombre
+    }
 }

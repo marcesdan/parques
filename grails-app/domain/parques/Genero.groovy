@@ -14,4 +14,9 @@ class Genero {
     static constraints = {
         nombre unique: true
     }
+
+    @Override
+    String toString() {
+    	nombre
+    }
 }

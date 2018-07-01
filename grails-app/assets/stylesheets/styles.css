@@ -104,6 +104,9 @@ table.dataTable {
 }
 
 /*vista en modo grilla*/
+#card-prototype {
+  display: none;
+}
 .card-deck .card {
     margin: 0;
 }

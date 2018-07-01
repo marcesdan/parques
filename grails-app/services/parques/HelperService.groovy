@@ -20,4 +20,10 @@ class HelperService {
     List getGeneros(String str) {
         Genero.findAllByNombreLike("${str}%", [ sort: 'nombre', order: 'asc'])
     }
+
+    List getEspeciesPorNombreCientifico(String nombreCientifico) {
+        Especie.where {
+            nombre_cientifico ==~ "${nombreCientifico}%"
+        }.list(sort:"nombre_cientifico", order: "asc")
+    }
 }

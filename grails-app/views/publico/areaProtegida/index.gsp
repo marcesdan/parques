@@ -10,6 +10,7 @@
         <p>Los datos aquí presentados, representan indicadores del grado de conocimiento digitalizado (ingresado a nuestra base de datos) con el que actualmente contamos.</p>
         <p>Cabe destacar que estos indicadores son dinámicos y se incrementarán a medida que recibamos e ingresemos nuevas fuentes de información.</p>
     </div>
+    <g:render template="filtros"/>
     <nav class="mt-4">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-tabla-tab" data-toggle="tab" href="#nav-tabla" role="tab" aria-controls="nav-tabla" aria-selected="true">
@@ -30,17 +31,17 @@
       <div class="tab-pane fade mt-3" id="nav-grilla" role="tabpanel" aria-labelledby="nav-grilla-tab">
         <g:render template="grilla"/>
       </div>
-      <div class="tab-pane fade" id="nav-mapa" role="tabpanel" aria-labelledby="nav-mapa-tab">...</div>
+      <div class="tab-pane fade" id="nav-mapa" role="tabpanel" aria-labelledby="nav-mapa-tab">
+        <div id="map-areas-protegidas" class="shadow-lg mt-3"></div>
+      </div>
     </div>
     <hr>
-    <p class="p-2">
-      47 Areas Protegidas - Superficie total 4.594.003 ha
-      Los datos publicados son provisorios y están en proceso de actualización. Cualquier observación o duda remitirla a la casilla de e-mail: 
-      <a href="mailto:sib@apn.gov.ar">sib@apn.gov.ar</a>
+    <p>Los datos publicados son provisorios y están en proceso de actualización. Cualquier observación o duda remitirla a la casilla de e-mail: <a href="mailto:sib@apn.gov.ar">sib@apn.gov.ar</a>
     </p>
-
     <content tag="scripts">
-      <asset:javascript src="datatable.js"/>
+      <asset:javascript src="/parques/areaProtegida/init-areas-protegidas.js"/>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUo_V-JUs-HY-Oy5yuVp3lGRRDgLnSWUI&callback=iniciarMapa">
+      </script>
     </content>
   </body>
 </html>

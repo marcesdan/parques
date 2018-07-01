@@ -16,7 +16,8 @@
     <asset:stylesheet src="bootstrap/bootstrap.min.css"/>
 
     <!-- Datatables -->
-    <asset:stylesheet src="datatables/dataTables.bootstrap4.css"/>
+    %{-- <asset:stylesheet src="datatables/dataTables.bootstrap4.css"/> --}%
+    <asset:stylesheet src="datatables/dataTables.bootstrap4.min.css"/>
     <asset:stylesheet src="datatables/buttons.bootstrap4.min.css"/>
     <asset:stylesheet src="datatables/responsive.bootstrap4.min.css"/>
 
